@@ -1,233 +1,272 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GAMING SHOP</title>
+
+<title>GAMING SHOP | Cartes & abonnements</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
 }
 
-body {
-  background: #080b12;
-  color: white;
+body{
+  background:#070b12;
+  color:#fff;
 }
 
-header {
-  background: #0d111b;
-  padding: 18px;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  border-bottom: 1px solid #1d2635;
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  padding:16px;
+  background:rgba(7,11,18,.96);
+  border-bottom:1px solid #1d2a3b;
 }
 
-.logo {
-  font-size: 25px;
-  font-weight: bold;
-  color: #00eaff;
+.logo{
+  font-size:24px;
+  font-weight:900;
+  color:#00e5ff;
 }
 
-.slogan {
-  font-size: 11px;
-  color: #aaa;
-  margin-top: 4px;
+.logo span{
+  color:#fff;
 }
 
-.hero {
-  padding: 35px 20px;
-  text-align: center;
+.subtitle{
+  font-size:11px;
+  color:#8c99aa;
+  margin-top:4px;
+}
+
+.hero{
+  padding:50px 20px;
+  text-align:center;
   background:
-    radial-gradient(circle at top, #12334a, #080b12 65%);
+    radial-gradient(circle at 50% 0%,#073c55,transparent 55%);
 }
 
-.hero h1 {
-  font-size: 32px;
-  margin-bottom: 10px;
+.hero h1{
+  font-size:38px;
+  line-height:1.1;
+  margin-bottom:14px;
 }
 
-.hero h1 span {
-  color: #00eaff;
+.hero h1 span{
+  color:#00e5ff;
 }
 
-.hero p {
-  color: #bbb;
-  margin-bottom: 20px;
+.hero p{
+  color:#aeb8c5;
+  margin-bottom:25px;
 }
 
-.whatsapp-btn {
-  display: inline-block;
-  background: #20c863;
-  color: white;
-  padding: 13px 22px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
+.whatsapp{
+  display:inline-block;
+  padding:14px 24px;
+  border-radius:30px;
+  background:#20c863;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
 }
 
-.search {
-  padding: 15px;
+.search{
+  padding:15px;
 }
 
-.search input {
-  width: 100%;
-  padding: 14px;
-  border-radius: 12px;
-  border: 1px solid #263244;
-  background: #111722;
-  color: white;
-  outline: none;
+.search input{
+  width:100%;
+  padding:15px;
+  border-radius:12px;
+  border:1px solid #243246;
+  background:#101722;
+  color:white;
+  font-size:15px;
+  outline:none;
 }
 
-.categories {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  padding: 5px 15px 15px;
+.categories{
+  display:flex;
+  gap:9px;
+  padding:0 15px 20px;
+  overflow-x:auto;
 }
 
-.categories button {
-  white-space: nowrap;
-  border: 1px solid #263244;
-  background: #111722;
-  color: white;
-  padding: 9px 14px;
-  border-radius: 20px;
+.categories button{
+  white-space:nowrap;
+  padding:10px 16px;
+  border-radius:25px;
+  border:1px solid #26364c;
+  background:#101722;
+  color:white;
 }
 
-.products {
-  padding: 10px 15px 90px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+.categories button.active{
+  background:#00bcd4;
+  border-color:#00bcd4;
 }
 
-.card {
-  background: #111722;
-  border: 1px solid #202b3d;
-  border-radius: 15px;
-  overflow: hidden;
+.products{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:13px;
+  padding:0 15px 110px;
 }
 
-.product-img {
-  height: 130px;
-  background: linear-gradient(135deg, #111d30, #172f43);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 48px;
+.card{
+  background:#101722;
+  border:1px solid #202e42;
+  border-radius:17px;
+  overflow:hidden;
+  transition:.2s;
 }
 
-.card-content {
-  padding: 12px;
+.card:hover{
+  transform:translateY(-3px);
 }
 
-.card h3 {
-  font-size: 15px;
-  margin-bottom: 7px;
+.image{
+  height:145px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:55px;
+  background:
+    radial-gradient(circle,#173d53,#101722 70%);
 }
 
-.price {
-  color: #00eaff;
-  font-weight: bold;
-  margin-bottom: 10px;
+.info{
+  padding:13px;
 }
 
-.add {
-  width: 100%;
-  border: none;
-  background: #00bcd4;
-  color: white;
-  padding: 10px;
-  border-radius: 9px;
-  font-weight: bold;
+.badge{
+  display:inline-block;
+  font-size:10px;
+  padding:4px 7px;
+  border-radius:8px;
+  background:#17283a;
+  color:#00e5ff;
+  margin-bottom:7px;
 }
 
-.cart {
-  position: fixed;
-  bottom: 15px;
-  right: 15px;
-  background: #00bcd4;
-  color: white;
-  border: none;
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  font-size: 23px;
-  box-shadow: 0 5px 20px #000;
+.info h3{
+  font-size:16px;
+  margin-bottom:8px;
 }
 
-.cart-count {
-  position: absolute;
-  top: -3px;
-  right: -3px;
-  background: red;
-  font-size: 12px;
-  padding: 4px 7px;
-  border-radius: 20px;
+.price{
+  color:#00e5ff;
+  font-size:17px;
+  font-weight:bold;
+  margin-bottom:11px;
 }
 
-footer {
-  text-align: center;
-  padding: 25px;
-  color: #777;
-  font-size: 13px;
+.add{
+  width:100%;
+  padding:10px;
+  border:0;
+  border-radius:10px;
+  background:#00bcd4;
+  color:white;
+  font-weight:bold;
 }
 
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.8);
-  z-index: 20;
-  padding: 20px;
+.cart{
+  position:fixed;
+  z-index:200;
+  right:18px;
+  bottom:20px;
+  width:60px;
+  height:60px;
+  border:0;
+  border-radius:50%;
+  background:#00bcd4;
+  color:white;
+  font-size:23px;
+  box-shadow:0 5px 25px #000;
 }
 
-.modal-box {
-  background: #101722;
-  border-radius: 18px;
-  padding: 20px;
-  max-width: 500px;
-  margin: 50px auto;
-  max-height: 80vh;
-  overflow-y: auto;
+.count{
+  position:absolute;
+  top:-4px;
+  right:-3px;
+  background:red;
+  border-radius:20px;
+  padding:4px 7px;
+  font-size:11px;
 }
 
-.close {
-  float: right;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 25px;
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:300;
+  background:rgba(0,0,0,.82);
+  padding:20px;
 }
 
-.cart-item {
-  padding: 12px 0;
-  border-bottom: 1px solid #263244;
+.modal-box{
+  max-width:500px;
+  margin:50px auto;
+  background:#101722;
+  border:1px solid #26364c;
+  border-radius:18px;
+  padding:20px;
+  max-height:80vh;
+  overflow:auto;
 }
 
-.total {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 20px 0;
-  color: #00eaff;
+.close{
+  float:right;
+  border:0;
+  background:none;
+  color:white;
+  font-size:28px;
 }
 
-.order {
-  display: block;
-  width: 100%;
-  background: #20c863;
-  color: white;
-  text-align: center;
-  padding: 14px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
+.cart-item{
+  padding:14px 0;
+  border-bottom:1px solid #263246;
+}
+
+.remove{
+  float:right;
+  background:#e53935;
+  color:white;
+  border:0;
+  border-radius:7px;
+  padding:6px 8px;
+}
+
+.total{
+  margin:20px 0;
+  font-size:20px;
+  font-weight:bold;
+  color:#00e5ff;
+}
+
+.order{
+  display:block;
+  padding:15px;
+  border-radius:11px;
+  background:#20c863;
+  color:white;
+  text-align:center;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+footer{
+  padding:30px 15px;
+  text-align:center;
+  color:#697586;
+  border-top:1px solid #172233;
 }
 </style>
 </head>
@@ -235,121 +274,268 @@ footer {
 <body>
 
 <header>
-  <div class="logo">🎮 GAMING SHOP</div>
-  <div class="slogan">CARTES & ABONNEMENTS GAMING</div>
+  <div class="logo">🎮 GAMING <span>SHOP</span></div>
+  <div class="subtitle">CARTES & ABONNEMENTS GAMING</div>
 </header>
 
 <section class="hero">
-  <h1>Bienvenue sur <span>GAMING SHOP</span></h1>
-  <p>Rapide • Sécurisé • Fiable</p>
 
-  <a class="whatsapp-btn"
+  <h1>Ton univers <span>Gaming</span></h1>
+
+  <p>
+    Cartes cadeaux, jeux et abonnements.
+    Commande rapidement depuis ton téléphone.
+  </p>
+
+  <a class="whatsapp"
      href="https://wa.me/22668877551"
      target="_blank">
-     Commander sur WhatsApp
+    💬 Commander sur WhatsApp
   </a>
+
 </section>
 
 <div class="search">
   <input
-    type="text"
     id="search"
+    type="text"
     placeholder="🔎 Rechercher un produit..."
-    onkeyup="searchProducts()">
+    oninput="searchProducts()">
 </div>
 
 <div class="categories">
-  <button onclick="filterProducts('all')">Tout</button>
-  <button onclick="filterProducts('gaming')">Gaming</button>
-  <button onclick="filterProducts('streaming')">Streaming</button>
-  <button onclick="filterProducts('mobile')">Mobile</button>
+
+  <button class="active"
+          onclick="filterProducts('all',this)">
+    Tout
+  </button>
+
+  <button onclick="filterProducts('gaming',this)">
+    🎮 Gaming
+  </button>
+
+  <button onclick="filterProducts('streaming',this)">
+    🎬 Streaming
+  </button>
+
+  <button onclick="filterProducts('mobile',this)">
+    📱 Mobile
+  </button>
+
 </div>
 
-<section class="products" id="products">
+<section class="products">
 
-  <div class="card" data-category="gaming" data-name="PSN Card">
-    <div class="product-img">🎮</div>
-    <div class="card-content">
+  <div class="card"
+       data-category="gaming"
+       data-name="PSN Card">
+
+    <div class="image">🎮</div>
+
+    <div class="info">
+
+      <span class="badge">GAMING</span>
+
       <h3>PSN Card</h3>
+
       <div class="price">3 500 FCFA</div>
-      <button class="add" onclick="addToCart('PSN Card',3500)">
-        Ajouter
+
+      <button class="add"
+              onclick="addToCart('PSN Card',3500)">
+        Ajouter au panier
       </button>
+
     </div>
   </div>
 
-  <div class="card" data-category="gaming" data-name="V-Bucks">
-    <div class="product-img">🟣</div>
-    <div class="card-content">
+
+  <div class="card"
+       data-category="gaming"
+       data-name="V-Bucks">
+
+    <div class="image">🟣</div>
+
+    <div class="info">
+
+      <span class="badge">FORTNITE</span>
+
       <h3>V-Bucks</h3>
+
       <div class="price">3 500 FCFA</div>
-      <button class="add" onclick="addToCart('V-Bucks',3500)">
-        Ajouter
+
+      <button class="add"
+              onclick="addToCart('V-Bucks',3500)">
+        Ajouter au panier
       </button>
+
     </div>
   </div>
 
-  <div class="card" data-category="gaming" data-name="Robux">
-    <div class="product-img">🟩</div>
-    <div class="card-content">
+
+  <div class="card"
+       data-category="gaming"
+       data-name="Robux">
+
+    <div class="image">🟩</div>
+
+    <div class="info">
+
+      <span class="badge">ROBLOX</span>
+
       <h3>Robux</h3>
+
       <div class="price">3 500 FCFA</div>
-      <button class="add" onclick="addToCart('Robux',3500)">
-        Ajouter
+
+      <button class="add"
+              onclick="addToCart('Robux',3500)">
+        Ajouter au panier
       </button>
+
     </div>
   </div>
 
-  <div class="card" data-category="streaming" data-name="Netflix">
-    <div class="product-img">🎬</div>
-    <div class="card-content">
+
+  <div class="card"
+       data-category="streaming"
+       data-name="Netflix">
+
+    <div class="image">🎬</div>
+
+    <div class="info">
+
+      <span class="badge">STREAMING</span>
+
       <h3>Netflix</h3>
+
       <div class="price">3 500 FCFA</div>
-      <button class="add" onclick="addToCart('Netflix',3500)">
-        Ajouter
+
+      <button class="add"
+              onclick="addToCart('Netflix',3500)">
+        Ajouter au panier
       </button>
+
     </div>
   </div>
 
-  <div class="card" data-category="streaming" data-name="Prime Video">
-    <div class="product-img">📺</div>
-    <div class="card-content">
+
+  <div class="card"
+       data-category="streaming"
+       data-name="Prime Video">
+
+    <div class="image">📺</div>
+
+    <div class="info">
+
+      <span class="badge">STREAMING</span>
+
       <h3>Prime Video</h3>
+
       <div class="price">3 500 FCFA</div>
-      <button class="add" onclick="addToCart('Prime Video',3500)">
-        Ajouter
+
+      <button class="add"
+              onclick="addToCart('Prime Video',3500)">
+        Ajouter au panier
       </button>
+
     </div>
   </div>
 
-  <div class="card" data-category="streaming" data-name="Crunchyroll">
-    <div class="product-img">🍥</div>
-    <div class="card-content">
+
+  <div class="card"
+       data-category="streaming"
+       data-name="Crunchyroll">
+
+    <div class="image">🍥</div>
+
+    <div class="info">
+
+      <span class="badge">ANIME</span>
+
       <h3>Crunchyroll</h3>
+
       <div class="price">3 500 FCFA</div>
-      <button class="add" onclick="addToCart('Crunchyroll',3500)">
-        Ajouter
+
+      <button class="add"
+              onclick="addToCart('Crunchyroll',3500)">
+        Ajouter au panier
       </button>
+
+    </div>
+  </div>
+
+
+  <div class="card"
+       data-category="mobile"
+       data-name="TikTok Coins">
+
+    <div class="image">🎵</div>
+
+    <div class="info">
+
+      <span class="badge">MOBILE</span>
+
+      <h3>TikTok Coins</h3>
+
+      <div class="price">3 500 FCFA</div>
+
+      <button class="add"
+              onclick="addToCart('TikTok Coins',3500)">
+        Ajouter au panier
+      </button>
+
+    </div>
+  </div>
+
+
+  <div class="card"
+       data-category="gaming"
+       data-name="Nintendo eShop">
+
+    <div class="image">🕹️</div>
+
+    <div class="info">
+
+      <span class="badge">NINTENDO</span>
+
+      <h3>Nintendo eShop</h3>
+
+      <div class="price">3 500 FCFA</div>
+
+      <button class="add"
+              onclick="addToCart('Nintendo eShop',3500)">
+        Ajouter au panier
+      </button>
+
     </div>
   </div>
 
 </section>
 
 <footer>
-  © 2026 GAMING SHOP — Tous droits réservés
+  <strong>GAMING SHOP</strong>
+  <br><br>
+  Rapide • Sécurisé • Fiable
+  <br><br>
+  © 2026 GAMING SHOP
 </footer>
+
 
 <button class="cart" onclick="openCart()">
   🛒
-  <span class="cart-count" id="count">0</span>
+  <span class="count" id="count">0</span>
 </button>
 
-<div class="modal" id="cartModal">
+
+<div class="modal" id="modal">
+
   <div class="modal-box">
 
-    <button class="close" onclick="closeCart()">×</button>
+    <button class="close"
+            onclick="closeCart()">×</button>
 
     <h2>🛒 Mon panier</h2>
+
+    <br>
 
     <div id="cartItems"></div>
 
@@ -357,144 +543,165 @@ footer {
       Total : <span id="total">0</span> FCFA
     </div>
 
-    <a id="orderLink"
+    <a id="order"
        class="order"
-       href="#"
        target="_blank">
-       Commander sur WhatsApp
+       💬 Commander sur WhatsApp
     </a>
 
   </div>
+
 </div>
+
 
 <script>
 
 let cart = [];
 
-function addToCart(name, price) {
+
+function addToCart(name,price){
 
   cart.push({
-    name: name,
-    price: price
+    name:name,
+    price:price
   });
 
   updateCart();
 
-  alert(name + " ajouté au panier !");
+  alert("✅ "+name+" ajouté au panier !");
 }
 
-function updateCart() {
 
-  document.getElementById("count").innerText = cart.length;
+function removeItem(index){
 
-  let items = "";
-  let total = 0;
+  cart.splice(index,1);
 
-  cart.forEach((item, index) => {
+  updateCart();
+}
+
+
+function updateCart(){
+
+  document.getElementById("count").textContent =
+    cart.length;
+
+  let html="";
+  let total=0;
+
+  cart.forEach((item,index)=>{
 
     total += item.price;
 
-    items += `
+    html += `
       <div class="cart-item">
-        <strong>${item.name}</strong><br>
+
+        <strong>${item.name}</strong>
+
+        <br>
+
         ${item.price.toLocaleString()} FCFA
+
         <button
-          onclick="removeItem(${index})"
-          style="float:right;background:red;color:white;border:0;padding:5px;border-radius:5px">
+          class="remove"
+          onclick="removeItem(${index})">
           Supprimer
         </button>
+
       </div>
     `;
   });
 
-  document.getElementById("cartItems").innerHTML = items;
+  document.getElementById("cartItems").innerHTML =
+    html || "Votre panier est vide.";
 
-  document.getElementById("total").innerText =
+  document.getElementById("total").textContent =
     total.toLocaleString();
 
-  let message = "Bonjour GAMING SHOP 👋%0A%0A";
 
-  if (cart.length === 0) {
-    message += "Je souhaite commander.";
-  } else {
+  let message =
+    "Bonjour GAMING SHOP 👋%0A%0A";
 
-    message += "Je souhaite commander :%0A";
+  message += "Je souhaite commander :%0A";
 
-    cart.forEach(item => {
-      message +=
-        "- " + item.name +
-        " : " +
-        item.price.toLocaleString() +
-        " FCFA%0A";
-    });
+  cart.forEach(item=>{
 
     message +=
-      "%0ATotal : " +
-      total.toLocaleString() +
-      " FCFA";
-  }
+      "• "+item.name+
+      " — "+
+      item.price.toLocaleString()+
+      " FCFA%0A";
 
-  document.getElementById("orderLink").href =
-    "https://wa.me/22668877551?text=" + message;
+  });
+
+  message +=
+    "%0ATotal : "+
+    total.toLocaleString()+
+    " FCFA";
+
+
+  document.getElementById("order").href =
+    "https://wa.me/22668877551?text="+message;
 }
 
-function removeItem(index) {
 
-  cart.splice(index, 1);
+function openCart(){
 
-  updateCart();
+  document.getElementById("modal").style.display =
+    "block";
+
 }
 
-function openCart() {
 
-  document.getElementById("cartModal").style.display = "block";
+function closeCart(){
 
-  updateCart();
+  document.getElementById("modal").style.display =
+    "none";
+
 }
 
-function closeCart() {
 
-  document.getElementById("cartModal").style.display = "none";
-}
+function searchProducts(){
 
-function searchProducts() {
-
-  let search =
+  let value =
     document.getElementById("search")
     .value
     .toLowerCase();
 
-  let cards =
-    document.querySelectorAll(".card");
+  document.querySelectorAll(".card")
+    .forEach(card=>{
 
-  cards.forEach(card => {
+      let name =
+        card.dataset.name.toLowerCase();
 
-    let name =
-      card.dataset.name.toLowerCase();
+      card.style.display =
+        name.includes(value)
+        ? "block"
+        : "none";
 
-    card.style.display =
-      name.includes(search)
-      ? "block"
-      : "none";
-  });
+    });
 }
 
-function filterProducts(category) {
 
-  let cards =
-    document.querySelectorAll(".card");
+function filterProducts(category,button){
 
-  cards.forEach(card => {
+  document.querySelectorAll(".categories button")
+    .forEach(btn=>{
+      btn.classList.remove("active");
+    });
 
-    if (
-      category === "all" ||
-      card.dataset.category === category
-    ) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
-  });
+  button.classList.add("active");
+
+  document.querySelectorAll(".card")
+    .forEach(card=>{
+
+      card.style.display =
+        category==="all" ||
+        card.dataset.category===category
+        ? "block"
+        : "none";
+
+    });
+
 }
 
 updateCart();
