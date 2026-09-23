@@ -1,0 +1,505 @@
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GAMING SHOP</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #080b12;
+  color: white;
+}
+
+header {
+  background: #0d111b;
+  padding: 18px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #1d2635;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: bold;
+  color: #00eaff;
+}
+
+.slogan {
+  font-size: 11px;
+  color: #aaa;
+  margin-top: 4px;
+}
+
+.hero {
+  padding: 35px 20px;
+  text-align: center;
+  background:
+    radial-gradient(circle at top, #12334a, #080b12 65%);
+}
+
+.hero h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.hero h1 span {
+  color: #00eaff;
+}
+
+.hero p {
+  color: #bbb;
+  margin-bottom: 20px;
+}
+
+.whatsapp-btn {
+  display: inline-block;
+  background: #20c863;
+  color: white;
+  padding: 13px 22px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.search {
+  padding: 15px;
+}
+
+.search input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #263244;
+  background: #111722;
+  color: white;
+  outline: none;
+}
+
+.categories {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 5px 15px 15px;
+}
+
+.categories button {
+  white-space: nowrap;
+  border: 1px solid #263244;
+  background: #111722;
+  color: white;
+  padding: 9px 14px;
+  border-radius: 20px;
+}
+
+.products {
+  padding: 10px 15px 90px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.card {
+  background: #111722;
+  border: 1px solid #202b3d;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.product-img {
+  height: 130px;
+  background: linear-gradient(135deg, #111d30, #172f43);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+}
+
+.card-content {
+  padding: 12px;
+}
+
+.card h3 {
+  font-size: 15px;
+  margin-bottom: 7px;
+}
+
+.price {
+  color: #00eaff;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.add {
+  width: 100%;
+  border: none;
+  background: #00bcd4;
+  color: white;
+  padding: 10px;
+  border-radius: 9px;
+  font-weight: bold;
+}
+
+.cart {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  background: #00bcd4;
+  color: white;
+  border: none;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  font-size: 23px;
+  box-shadow: 0 5px 20px #000;
+}
+
+.cart-count {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  background: red;
+  font-size: 12px;
+  padding: 4px 7px;
+  border-radius: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #777;
+  font-size: 13px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.8);
+  z-index: 20;
+  padding: 20px;
+}
+
+.modal-box {
+  background: #101722;
+  border-radius: 18px;
+  padding: 20px;
+  max-width: 500px;
+  margin: 50px auto;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.close {
+  float: right;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 25px;
+}
+
+.cart-item {
+  padding: 12px 0;
+  border-bottom: 1px solid #263244;
+}
+
+.total {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px 0;
+  color: #00eaff;
+}
+
+.order {
+  display: block;
+  width: 100%;
+  background: #20c863;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🎮 GAMING SHOP</div>
+  <div class="slogan">CARTES & ABONNEMENTS GAMING</div>
+</header>
+
+<section class="hero">
+  <h1>Bienvenue sur <span>GAMING SHOP</span></h1>
+  <p>Rapide • Sécurisé • Fiable</p>
+
+  <a class="whatsapp-btn"
+     href="https://wa.me/22668877551"
+     target="_blank">
+     Commander sur WhatsApp
+  </a>
+</section>
+
+<div class="search">
+  <input
+    type="text"
+    id="search"
+    placeholder="🔎 Rechercher un produit..."
+    onkeyup="searchProducts()">
+</div>
+
+<div class="categories">
+  <button onclick="filterProducts('all')">Tout</button>
+  <button onclick="filterProducts('gaming')">Gaming</button>
+  <button onclick="filterProducts('streaming')">Streaming</button>
+  <button onclick="filterProducts('mobile')">Mobile</button>
+</div>
+
+<section class="products" id="products">
+
+  <div class="card" data-category="gaming" data-name="PSN Card">
+    <div class="product-img">🎮</div>
+    <div class="card-content">
+      <h3>PSN Card</h3>
+      <div class="price">3 500 FCFA</div>
+      <button class="add" onclick="addToCart('PSN Card',3500)">
+        Ajouter
+      </button>
+    </div>
+  </div>
+
+  <div class="card" data-category="gaming" data-name="V-Bucks">
+    <div class="product-img">🟣</div>
+    <div class="card-content">
+      <h3>V-Bucks</h3>
+      <div class="price">3 500 FCFA</div>
+      <button class="add" onclick="addToCart('V-Bucks',3500)">
+        Ajouter
+      </button>
+    </div>
+  </div>
+
+  <div class="card" data-category="gaming" data-name="Robux">
+    <div class="product-img">🟩</div>
+    <div class="card-content">
+      <h3>Robux</h3>
+      <div class="price">3 500 FCFA</div>
+      <button class="add" onclick="addToCart('Robux',3500)">
+        Ajouter
+      </button>
+    </div>
+  </div>
+
+  <div class="card" data-category="streaming" data-name="Netflix">
+    <div class="product-img">🎬</div>
+    <div class="card-content">
+      <h3>Netflix</h3>
+      <div class="price">3 500 FCFA</div>
+      <button class="add" onclick="addToCart('Netflix',3500)">
+        Ajouter
+      </button>
+    </div>
+  </div>
+
+  <div class="card" data-category="streaming" data-name="Prime Video">
+    <div class="product-img">📺</div>
+    <div class="card-content">
+      <h3>Prime Video</h3>
+      <div class="price">3 500 FCFA</div>
+      <button class="add" onclick="addToCart('Prime Video',3500)">
+        Ajouter
+      </button>
+    </div>
+  </div>
+
+  <div class="card" data-category="streaming" data-name="Crunchyroll">
+    <div class="product-img">🍥</div>
+    <div class="card-content">
+      <h3>Crunchyroll</h3>
+      <div class="price">3 500 FCFA</div>
+      <button class="add" onclick="addToCart('Crunchyroll',3500)">
+        Ajouter
+      </button>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  © 2026 GAMING SHOP — Tous droits réservés
+</footer>
+
+<button class="cart" onclick="openCart()">
+  🛒
+  <span class="cart-count" id="count">0</span>
+</button>
+
+<div class="modal" id="cartModal">
+  <div class="modal-box">
+
+    <button class="close" onclick="closeCart()">×</button>
+
+    <h2>🛒 Mon panier</h2>
+
+    <div id="cartItems"></div>
+
+    <div class="total">
+      Total : <span id="total">0</span> FCFA
+    </div>
+
+    <a id="orderLink"
+       class="order"
+       href="#"
+       target="_blank">
+       Commander sur WhatsApp
+    </a>
+
+  </div>
+</div>
+
+<script>
+
+let cart = [];
+
+function addToCart(name, price) {
+
+  cart.push({
+    name: name,
+    price: price
+  });
+
+  updateCart();
+
+  alert(name + " ajouté au panier !");
+}
+
+function updateCart() {
+
+  document.getElementById("count").innerText = cart.length;
+
+  let items = "";
+  let total = 0;
+
+  cart.forEach((item, index) => {
+
+    total += item.price;
+
+    items += `
+      <div class="cart-item">
+        <strong>${item.name}</strong><br>
+        ${item.price.toLocaleString()} FCFA
+        <button
+          onclick="removeItem(${index})"
+          style="float:right;background:red;color:white;border:0;padding:5px;border-radius:5px">
+          Supprimer
+        </button>
+      </div>
+    `;
+  });
+
+  document.getElementById("cartItems").innerHTML = items;
+
+  document.getElementById("total").innerText =
+    total.toLocaleString();
+
+  let message = "Bonjour GAMING SHOP 👋%0A%0A";
+
+  if (cart.length === 0) {
+    message += "Je souhaite commander.";
+  } else {
+
+    message += "Je souhaite commander :%0A";
+
+    cart.forEach(item => {
+      message +=
+        "- " + item.name +
+        " : " +
+        item.price.toLocaleString() +
+        " FCFA%0A";
+    });
+
+    message +=
+      "%0ATotal : " +
+      total.toLocaleString() +
+      " FCFA";
+  }
+
+  document.getElementById("orderLink").href =
+    "https://wa.me/22668877551?text=" + message;
+}
+
+function removeItem(index) {
+
+  cart.splice(index, 1);
+
+  updateCart();
+}
+
+function openCart() {
+
+  document.getElementById("cartModal").style.display = "block";
+
+  updateCart();
+}
+
+function closeCart() {
+
+  document.getElementById("cartModal").style.display = "none";
+}
+
+function searchProducts() {
+
+  let search =
+    document.getElementById("search")
+    .value
+    .toLowerCase();
+
+  let cards =
+    document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+
+    let name =
+      card.dataset.name.toLowerCase();
+
+    card.style.display =
+      name.includes(search)
+      ? "block"
+      : "none";
+  });
+}
+
+function filterProducts(category) {
+
+  let cards =
+    document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+
+    if (
+      category === "all" ||
+      card.dataset.category === category
+    ) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+
+updateCart();
+
+</script>
+
+</body>
+</html>
